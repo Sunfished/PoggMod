@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "blitzpogg:block/example_block" }
+    }
+}

@@ -1,0 +1,11 @@
+{
+	"item.blitzpogg.example_item": "Pogg Gummy",
+	
+	"block.blitzpogg.example_block": "Block of Gummy",
+	
+	"tooltip.special_item.hold_shift": "Hold Shift for Advanced Tooltip",
+	
+	"itemGroup.poggmodgroup": "Pogg Mod Items",
+	
+	"entity.blitzpogg.pogg_entity" : "Pogg"
+}
