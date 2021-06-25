@@ -5,6 +5,7 @@ import com.sunfished.poggmod.common.items.SpecialItem;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,4 +23,11 @@ public class ItemInit {
 	// Block Items
 	public static final RegistryObject<BlockItem> EXAMPLE_BLOCK = ITEMS.register("example_block",
 			() -> new BlockItem(BlockInit.EXAMPLE_BLOCK.get(), new Item.Properties().tab(PoggMod.POGG_ITEMGROUP)));
+	
+	/*public static final RegistryObject<Item> POGG_SPAWN_EGG = ITEMS.register("pogg_spawn_egg",
+			() -> new Item(new Item));//*/
+	
+	public static Item.Properties defaultBuilder() {
+		return new Item.Properties().tab(ItemGroup.TAB_MISC);
+	}
 }

@@ -7,5 +7,7 @@
 	
 	"itemGroup.poggmodgroup": "Pogg Mod Items",
 	
-	"entity.blitzpogg.pogg_entity" : "Pogg"
+	"entity.blitzpogg.pogg_entity" : "Pogg",
+	
+	"item.blitzpogg.pogg_entity_spawn_egg": "Pogg Egg"
 }

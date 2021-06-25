@@ -26,6 +26,5 @@ public class PoggMainLayer extends LayerRenderer<PoggEntity, PoggModel<PoggEntit
 		float[] afloat = p_225628_4_.getMainColor().getTextureDiffuseColors();
 		renderColoredCutoutModel(this.getParentModel(), MAINTEXTURE, p_225628_1_, p_225628_2_, p_225628_3_, p_225628_4_,
 				afloat[0], afloat[1], afloat[2]);
-
 	}
 }

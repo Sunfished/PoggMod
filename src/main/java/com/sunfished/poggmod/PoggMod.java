@@ -4,8 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.sunfished.poggmod.client.render.entity.PoggRenderer;
-import com.sunfished.poggmod.client.render.entity.layers.PoggMainLayer;
 import com.sunfished.poggmod.core.init.BlockInit;
+import com.sunfished.poggmod.core.init.ContainerTypeInit;
 import com.sunfished.poggmod.core.init.EntityTypeInit;
 import com.sunfished.poggmod.core.init.ItemInit;
 
@@ -35,6 +35,7 @@ public class PoggMod
         
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        ContainerTypeInit.CONTAINERS.register(bus);
         //EntityTypeInit.ENTITY_TYPES.register(bus);
         //bus.addListener(PoggMod::setupCommon);
     	bus.addListener(PoggMod::setupClient);

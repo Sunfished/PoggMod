@@ -5,8 +5,10 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.sunfished.poggmod.common.entities.PoggEntity;
 
+import net.minecraft.client.renderer.entity.model.IHasArm;
 import net.minecraft.client.renderer.entity.model.TintedAgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,11 +18,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 // Paste this class into your mod and generate all required imports
 
 @OnlyIn(Dist.CLIENT)
-public class PoggModel<T extends PoggEntity> extends TintedAgeableModel<T> {
-	private final ModelRenderer body;
-	private final ModelRenderer head;
-	private final ModelRenderer armleft;
-	private final ModelRenderer armright;
+public class PoggModel<T extends PoggEntity> extends TintedAgeableModel<T> implements IHasArm {
+	public final ModelRenderer body;
+	public final ModelRenderer head;
+	public final ModelRenderer armleft;
+	public final ModelRenderer armright;
 	private final ModelRenderer legleft;
 	private final ModelRenderer legright;
 	private final ModelRenderer antenna;
@@ -70,12 +72,12 @@ public class PoggModel<T extends PoggEntity> extends TintedAgeableModel<T> {
 
 	@Override
 	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		body.render(matrixStack, buffer, packedLight, packedOverlay);
+		body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
 	@Override
 	protected Iterable<ModelRenderer> headParts() {
-		return ImmutableList.of(this.head,this.antenna);
+		return ImmutableList.of(this.head,this.antenna, this.armleft, this.armright);
 	}
 
 	@Override
@@ -111,4 +113,14 @@ public class PoggModel<T extends PoggEntity> extends TintedAgeableModel<T> {
 		modelRenderer.yRot = y;
 		modelRenderer.zRot = z;
 	}
+
+	@Override
+	public void translateToHand(HandSide p_225599_1_, MatrixStack p_225599_2_) {
+		this.getArm(p_225599_1_).translateAndRotate(p_225599_2_);
+	}
+	
+	protected ModelRenderer getArm(HandSide p_187074_1_)
+	{
+	      return p_187074_1_ == HandSide.LEFT ? this.armleft : this.armright;
+	   }
 }

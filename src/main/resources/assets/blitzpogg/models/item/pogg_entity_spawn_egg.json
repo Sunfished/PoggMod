@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "blitzpogg:items/pogg_egg",
+        "layer1": "blitzpogg:items/pogg_egg_overlay"   
+    }
+}
